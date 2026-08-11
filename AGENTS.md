@@ -26,8 +26,8 @@ As seguintes decisões arquiteturais e regras de negócio foram estabelecidas:
   - `colors`: A lista de cores deve ser formatada como uma única string unida por `|` (ex: `preto|branco`).
   - `Datas`: Devem ser validadas durante o processamento. Se válidas, gravadas como `yyyy-MM-dd`. Se inválidas, o campo fica vazio mas o registro continua válido.
 
-## Próximos Passos (A Definir)
-Nenhuma decisão de biblioteca técnica específica foi tomada. As seguintes partes **ainda serão implementadas**:
-- Lógica e bibliotecas exatas para leitura do JSONL (streaming).
-- Lógica de transformação de dados e validações (Application).
-- Lógica e bibliotecas exatas para gravação contínua (append) nos arquivos `players.csv` e `clubs.csv`.
+## Estado da Implementação
+A aplicação foi implementada e estruturada com sucesso seguindo as diretrizes definidas:
+- **Leitura do JSONL**: Implementada via streaming nativo do .NET (leitura linha a linha com `System.Text.Json`), sem carregar todo o arquivo em memória.
+- **Transformação**: Regras de negócio aplicadas corretamente na camada Application (filtragem de divisão, validação de datas, concatenação de cores e vinculação do ID do clube aos jogadores).
+- **Gravação (CSV)**: Escrita sequencial (append) nativa (ou com bibliotecas específicas) garantindo alta performance e baixo consumo de memória na geração de `players.csv` e `clubs.csv`.

@@ -1,4 +1,6 @@
-﻿namespace clubes_batch.Tests;
+﻿using Xunit;
+
+namespace clubes_batch.Tests;
 
 public class UnitTest1
 {

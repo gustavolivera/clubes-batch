@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36327.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clubes-batch", "clubes-batch.csproj", "{620AED77-ADE6-45CD-A9A0-F3CA7778A8C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clubes-batch.Tests", "clubes-batch.Tests\clubes-batch.Tests.csproj", "{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +27,6 @@ Global
 		{620AED77-ADE6-45CD-A9A0-F3CA7778A8C5}.Release|x64.Build.0 = Release|Any CPU
 		{620AED77-ADE6-45CD-A9A0-F3CA7778A8C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{620AED77-ADE6-45CD-A9A0-F3CA7778A8C5}.Release|x86.Build.0 = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|x64.Build.0 = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Debug|x86.Build.0 = Debug|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|x64.ActiveCfg = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|x64.Build.0 = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|x86.ActiveCfg = Release|Any CPU
-		{A7EB5EFB-B49C-4F69-A300-84DEC46F89ED}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ Este projeto é uma aplicação Console desenvolvida em **.NET 9**, focada no pr
 - `clubs.csv`
 
 ## Arquitetura
-Para manter a organização sem adicionar complexidade desnecessária, o projeto adota princípios da **Clean Architecture** através de uma estrutura de pastas dentro de um **único projeto principal**, acompanhado de um **projeto de testes** separado (`clubes-batch.Tests`). 
+Para manter a organização sem adicionar complexidade desnecessária, o projeto adota princípios da **Clean Architecture** através de uma estrutura de pastas dentro de um **único projeto principal**.
 
 As responsabilidades estão divididas na seguinte estrutura de pastas:
 

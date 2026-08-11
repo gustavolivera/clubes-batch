@@ -1,7 +1,9 @@
 using System;
 using System.IO;
 using Microsoft.Extensions.DependencyInjection;
+using clubes_batch.Application;
 using clubes_batch.Application.Interfaces;
+using clubes_batch.Infrastructure.Csv;
 using clubes_batch.Infrastructure.Jsonl;
 
 if (args.Length == 0)
@@ -21,18 +23,37 @@ if (!File.Exists(filePath))
 // Configuração da Injeção de Dependência
 var serviceCollection = new ServiceCollection();
 
-// Registro dos serviços (Infrastructure)
+// Registro dos serviços
 serviceCollection.AddScoped<IJsonlReader, JsonlReader>();
+serviceCollection.AddScoped<ClubProcessor>();
 
 // Build do container
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
-// O processamento orquestrado (Application) começará aqui nas próximas etapas.
+// Orquestração (Application Pipeline)
 var reader = serviceProvider.GetRequiredService<IJsonlReader>();
+var processor = serviceProvider.GetRequiredService<ClubProcessor>();
 
-await foreach (var club in reader.ReadAsync(filePath))
+// Instancia e garante o descarte correto do CsvWriter ao final do escopo (IDisposable)
+using var writer = new CsvWriter("clubs.csv", "players.csv");
+
+// Processamento Incremental em Streaming
+await foreach (var clubInput in reader.ReadAsync(filePath))
 {
-    Console.WriteLine(club);
+    var (clubRecord, playerRecords) = processor.Process(clubInput);
+    
+    // Se o clubRecord for nulo, significa que foi descartado pelo filtro de campeonatos.
+    if (clubRecord != null)
+    {
+        writer.WriteClub(clubRecord);
+        
+        // Escreve os jogadores, caso existam.
+        // Se a lista estiver vazia, o método de escrever iterará 0 vezes e nada será escrito.
+        if (playerRecords != null)
+        {
+            writer.WritePlayers(playerRecords);
+        }
+    }
 }
 
 Console.WriteLine("Processamento em lote finalizado com sucesso.");

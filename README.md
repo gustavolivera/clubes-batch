@@ -19,7 +19,7 @@ dotnet run -- <caminho_do_arquivo_jsonl>
 **Exemplo:**
 
 ```bash
-dotnet run -- "samples/sample_clubes.jsonl"
+dotnet run -- "sample/sample_clubes.jsonl"
 ```
 
 Ao final do processamento, os arquivos clubs.csv e players.csv serão gerados no diretório de execução da aplicação.
